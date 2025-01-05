@@ -71,6 +71,12 @@ sudo apt-mark hold kubelet kubeadm kubectl
 # Step 9: Enable and start kubelet
 sudo systemctl enable --now kubelet
 
+# if this a node exit out now
+if [ "$1" = "node" ]; then
+    echo "This is a node. Not running kubeadm init"
+    exit 0
+fi
+
 # Step 10: Initialize the Kubernetes control plane
 sudo kubeadm init --pod-network-cidr=10.244.0.0/16
 
@@ -82,12 +88,17 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 # Step 12: Install a CNI (Flannel)
 kubectl apply -f https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
 
-# Verify installation
+# Sleep 10
+echo Sleeping 10 seconds for pods to startup
+sleep 10
+
+# Verify installation. 8 pods should be running
 kubectl get pods --all-namespaces
 
 # Congratulations! Your control plane server setup is complete.
 
 # To create a worker node, follow steps 1 to 9 on the worker node.
+# Or run this script with the "node" argument
 # Then, run the following command on the control plane node:
 # sudo kubeadm token create --print-join-command
 # Copy and run the output command on the worker node to join the cluster.
