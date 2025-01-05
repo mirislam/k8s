@@ -12,6 +12,7 @@
 
 # Step 1: Disable swap
 sudo sh -c 'grep -v swap /etc/fstab > /tmp/fstab.new; mv /tmp/fstab.new /etc/fstab'
+sudo swapoff -a
 
 # Step 2: Configure port forwarding and enable br_netfilter
 cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
