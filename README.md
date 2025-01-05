@@ -14,7 +14,9 @@ Make sure to have your ssh key in authorized_keys of the VM. This will help you 
 
 Once you have your virtual machine ready and running. On control plane node run the following and wait for it to complete.
 
-```curl  https://raw.githubusercontent.com/mirislam/k8s/refs/heads/main/k8s_flash.sh | sh -```
+```bash
+curl  https://raw.githubusercontent.com/mirislam/k8s/refs/heads/main/k8s_flash.sh | sh -
+```
 
 Once complete, note the command that was printed. You will need it to have worker node join the cluster.
 
@@ -23,7 +25,9 @@ sudo kubeadm token create --print-join-command
 
 Which will print output like the following:
 
-```kubeadm join 192.168.86.56:6443 --token 517vn2.tay62xj7ztz9vt5l --discovery-token-ca-cert-hash sha256:354e8853acba4cce0c0a532e97cb1f7b3a3ee96be9ff3a2a007ef8d152f58f81```
+```bash 
+kubeadm join 192.168.86.56:6443 --token 517vn2.tay62xj7ztz9vt5l --discovery-token-ca-cert-hash sha256:354e8853acba4cce0c0a532e97cb1f7b3a3ee96be9ff3a2a007ef8d152f58f81
+```
 
 ### Worker Node Steps
 
@@ -41,7 +45,9 @@ Once the above commands are completed your worker node will be ready to join the
 
 On the control plane give the command to see if the worker node has joined the cluster or not
 
-```kubectl get nodes```
+```bash 
+kubectl get nodes
+```
 
 Output will be similar to this:
 
