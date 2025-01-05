@@ -1,6 +1,8 @@
 ## Setup Kubernetes in a Flash
 
-As part of CKA preparation I was looking into how to setup Kubernetes in a flash. Problem is it is not easy to setup. There are lots of tutorials to read and follow but there is always some small details which get missed. So I decided to write my own script that combines all the steps together in a simple shell script. All of these steps are tested on Ubuntu 22.04 LTS. Most likely it will work on other ubuntu distributions as well. Let me know if you find any issues. Depending on your internet speed you can have a control plane setup in less than 3 minutes using this script.
+As part of CKA preparation I was looking into how to setup Kubernetes in a flash. Problem is it is not easy to setup. There are lots of tutorials to read and follow but there is always some small details which get missed. So I decided to write my own script that combines all the steps together in a simple shell script. All of these steps are tested on Ubuntu 22.04 LTS. Most likely it will work on other ubuntu distributions as well. Depending on your internet speed you can have a control plane setup in less than 3 minutes using this script.
+
+You can also spend time going over the [Kubeadmin Tutorial](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/)
 
 ### Prerequisites
 
